@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --amazon: #ff9900;
+  --flipkart: #2874f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #080810;
+  color: #e8e8f0;
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a40;
+  border-radius: 3px;
+}
+
+/* Animated gradient background */
+.hero-gradient {
+  background: radial-gradient(
+      ellipse 80% 40% at 20% 10%,
+      rgba(255, 153, 0, 0.06) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 80% 20%,
+      rgba(40, 116, 240, 0.06) 0%,
+      transparent 60%
+    ),
+    #080810;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(15, 15, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+/* Amazon glow */
+.amazon-glow {
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.1), 0 0 1px rgba(255, 153, 0, 0.3);
+}
+.amazon-glow:hover {
+  box-shadow: 0 0 40px rgba(255, 153, 0, 0.15), 0 0 1px rgba(255, 153, 0, 0.5);
+}
+
+/* Flipkart glow */
+.flipkart-glow {
+  box-shadow: 0 0 30px rgba(40, 116, 240, 0.1), 0 0 1px rgba(40, 116, 240, 0.3);
+}
+.flipkart-glow:hover {
+  box-shadow: 0 0 40px rgba(40, 116, 240, 0.15),
+    0 0 1px rgba(40, 116, 240, 0.5);
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 30, 50, 0.8) 25%,
+    rgba(50, 50, 80, 0.5) 50%,
+    rgba(30, 30, 50, 0.8) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Search input focus ring */
+.search-ring:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.hero-gradient {
+  /* This ensures the animation shows through your background */
+  background: linear-gradient(to bottom, rgba(8, 8, 16, 0.8), rgba(15, 15, 26, 0.9));
+  backdrop-filter: blur(4px); /* Optional: makes content easier to read */
+}
+
+canvas {
+  /* Ensures the canvas doesn't capture clicks meant for buttons */
+  pointer-events: none; 
+}
+
+/* 1. Make the main UI containers invisible to the mouse */
+header, 
+section, 
+main,
+.hero-gradient {
+  pointer-events: none;
+}
+
+/* 2. Explicitly re-enable mouse for interactive elements */
+button, 
+input, 
+a, 
+.search-ring,
+[role="button"] {
+  pointer-events: auto;
+}
+
+/* 3. Ensure the background container is ready to receive events */
+.fixed.inset-0.-z-10 {
+  pointer-events: auto;
+}
