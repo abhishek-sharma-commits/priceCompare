@@ -20,6 +20,7 @@ export default function Header({ view, setView }) {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-1 p-1 bg-black/20 rounded-xl border border-white/5">
+        <a href="#search">
           <button
             onClick={() => setView("search")}
             className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
@@ -31,17 +32,21 @@ export default function Header({ view, setView }) {
             <SearchIcon size={14} />
             Compare
           </button>
-          <button
-            onClick={() => setView("about")}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              view === "about" 
-              ? "bg-[#FF9900] text-black shadow-lg" 
-              : "text-[#6b6b8a] hover:text-white hover:bg-white/5"
-            }`}
-          >
-            <Info size={14} />
-            About
-          </button>
+          </a>
+
+          <a className="transition-transform duration-300" href="#About">
+            <button
+              onClick={() => setView("about")}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                view === "about" 
+                ? "bg-[#FF9900] text-black shadow-lg" 
+                : "text-[#6b6b8a] hover:text-white hover:bg-white/5"
+              }`}
+            >
+              <Info size={14} />
+              About
+            </button>
+          </a>
         </nav>
 
         {/* Status Indicator */}

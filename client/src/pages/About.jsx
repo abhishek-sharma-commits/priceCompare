@@ -27,7 +27,7 @@ const FEATURES = [
 
 export default function About() {
   return (
-    <div className="min-h-screen relative text-white">
+    <div id="About" className="min-h-screen transition-transform duration-700 relative text-white">
       
       <main className="max-w-4xl mx-auto px-6 py-20 relative z-10">
         {/* Hero Section */}

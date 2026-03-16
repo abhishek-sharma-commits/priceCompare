@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 export default function Hero({ onSearch, loading }) {
   return (
     
-    <section className="relative pt-12 md:pt-24 pb-12 md:pb-16 text-center pointer-events-none px-4">
+    <section id="search" className="relative pt-12 md:pt-10 pb-12 md:pb-16 text-center pointer-events-none px-4">
       
       {/* Responsive Glow  mobile */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-[#FF9900]/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />

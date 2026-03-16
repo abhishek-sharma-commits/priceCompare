@@ -12,7 +12,7 @@ export default function SuggestedSearches({ onSelect }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, duration: 0.8 }}
-      className="flex flex-col items-center gap-5"
+      className="flex flex-col items-center "
     >
       {/* HUD Header */}
       <div className="flex items-center gap-4">
@@ -32,10 +32,10 @@ export default function SuggestedSearches({ onSelect }) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.1 + (i * 0.05) }}
             onClick={() => onSelect(term)}
-            className="group flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-sm text-[11px] font-mono text-gray-500 hover:text-white hover:border-[#FF9900]/30 hover:bg-[#FF9900]/5 transition-all duration-300"
+            className="group flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-sm text-[11px] font-mono text-white hover:text-white hover:border-[#FF9900]/30 hover:bg-[#FF9900]/5 transition-all duration-300"
           >
             {/* Tiny Indicator Dot */}
-            <div className="w-1 h-1 rounded-full bg-[#3a3a55] group-hover:bg-[#FF9900] group-hover:animate-pulse transition-colors" />
+            <div className="w-1 h-1 rounded-full bg-[#3a3a55] group-hover:bg-[#FF9900] group-hover:pulse-dot transition-colors" />
             {term}
           </motion.button>
         ))}

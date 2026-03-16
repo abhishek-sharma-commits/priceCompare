@@ -19,7 +19,7 @@ export default function SearchBar({ onSearch, loading }) {
       transition={{ duration: 0.5, delay: 0.3 }}
       className="w-full max-w-2xl mx-auto px-4 sm:px-0"
     >
-      <div 
+      <div  
         className={`relative flex items-center transition-all duration-500 rounded-2xl border backdrop-blur-md
           ${isFocused 
             ? " md:scale-[1.01]" 
@@ -72,7 +72,6 @@ export default function SearchBar({ onSearch, loading }) {
   className={`group relative m-1.5 md:m-2 px-4 md:px-6 py-2.5 rounded-xl font-bold text-xs md:text-sm overflow-hidden transition-all active:scale-95
     ${loading 
       ? "bg-[#1e1e2e] text-white/50 cursor-not-allowed" 
-      // FIX: Changed bg-gray-500 to the brand gradient
       : "bg-gradient-to-r from-[#FF9900] to-[#FFB84D] text-black shadow-lg shadow-[#FF9900]/10 hover:shadow-[#FF9900]/20"
     }`}
 >
