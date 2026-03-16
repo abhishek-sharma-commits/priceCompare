@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://pricebackend-wor2.onrender.com"],
+    origin: "http://localhost:5173", 
     credentials: true,
   }),
 );
