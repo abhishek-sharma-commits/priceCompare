@@ -19,11 +19,12 @@ export default function SearchBar({ onSearch, loading }) {
       transition={{ duration: 0.5, delay: 0.3 }}
       className="w-full max-w-2xl mx-auto px-4 sm:px-0"
     >
-      <div  
+      <div
         className={`relative flex items-center transition-all duration-500 rounded-2xl border backdrop-blur-md
-          ${isFocused 
-            ? " md:scale-[1.01]" 
-            : "bg-[#0f0f1a]/40 border-white/10 shadow-xl"
+          ${
+            isFocused
+              ? " md:scale-[1.01]"
+              : "bg-[#0f0f1a]/40 border-white/10 shadow-xl"
           }`}
       >
         {/* Search Icon - Hidden on very small screens to save space */}
@@ -67,37 +68,33 @@ export default function SearchBar({ onSearch, loading }) {
 
         {/* Action Button - Shrinks on Mobile */}
         <button
-  type="submit"
-  disabled={!query.trim() || loading}
-  className={`group relative m-1.5 md:m-2 px-4 md:px-6 py-2.5 rounded-xl font-bold text-xs md:text-sm overflow-hidden transition-all active:scale-95
-    ${loading 
-      ? "bg-[#1e1e2e] text-white/50 cursor-not-allowed" 
-      : "bg-gradient-to-r from-[#FF9900] to-[#FFB84D] text-black shadow-lg shadow-[#FF9900]/10 hover:shadow-[#FF9900]/20"
+          type="submit"
+          disabled={!query.trim() || loading}
+          className={`group relative m-1.5 md:m-2 px-4 md:px-6 py-2.5 rounded-xl font-bold text-xs md:text-sm overflow-hidden transition-all active:scale-95
+    ${
+      loading
+        ? "bg-[#1e1e2e] text-white/50 cursor-not-allowed"
+        : "group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-12 w-48 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg"
     }`}
->
-  <span className="relative z-10 flex items-center gap-2">
-    {loading ? (
-      <Loader2 size={16} className="animate-spin md:hidden" />
-    ) : null}
-    <span className={loading ? "hidden md:inline" : "inline"}>
-      {loading ? "Searching..." : "Compare"}
-    </span>
-    {!loading && <ArrowRight size={14} className="md:hidden" />}
-  </span>
-  
-  {/* Hover overlay - Subtle brightening effect */}
-  {!loading && (
-    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
-  )}
-</button>
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            {loading ? (
+              <Loader2 size={16} className="animate-spin md:hidden" />
+            ) : null}
+            <span className={loading ? "hidden md:inline" : "inline"}>
+              {loading ? "Searching..." : "Compare"}
+            </span>
+            {!loading && <ArrowRight size={14} className="md:hidden" />}
+          </span>
+
+          {/* Hover overlay - Subtle brightening effect */}
+          {!loading && (
+            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
+          )}
+        </button>
       </div>
 
-      {/* Meta Info - Responsive scaling */}
-      <div className="mt-4 flex items-center justify-center gap-4 md:gap-6 opacity-60">
-        <p className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.1em] md:tracking-[0.2em] text-black bg-white px-3 py-1 rounded-full">
-          Amazon.in <span className="text-black/20 px-1 md:px-2">|</span> Flipkart.com
-        </p>
-      </div>
+     
     </motion.form>
   );
 }

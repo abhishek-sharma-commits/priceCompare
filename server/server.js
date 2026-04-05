@@ -22,7 +22,7 @@ const limiter = rateLimit({
 });
 app.use("/api/", limiter);
 
-app.use("/api/compare", compareRoutes);
+app.use("/api/compare",limiter, compareRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "PriceRadar API is running" });

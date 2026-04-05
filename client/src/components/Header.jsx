@@ -33,6 +33,7 @@ export default function Header({ view, setView }) {
             Compare
           </button>
           </a>
+              <span className="text-gray-500">|</span>
 
           <a className="transition-transform duration-300" href="#About">
             <button
@@ -43,8 +44,21 @@ export default function Header({ view, setView }) {
                 : "text-[#6b6b8a] hover:text-white hover:bg-white/5"
               }`}
             >
-              <Info size={14} />
+              
               About
+            </button>
+          </a>
+              <span className="text-gray-500">|</span>
+           <a className="transition-transform duration-300" href="#Testimonials">
+            <button
+              onClick={() => setView("testimonials")}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                view === "testimonials" 
+                ? "bg-[#FF9900] text-black shadow-lg" 
+                : "text-[#6b6b8a] hover:text-white hover:bg-white/5"
+              }`}
+            >
+              Testimonials
             </button>
           </a>
         </nav>

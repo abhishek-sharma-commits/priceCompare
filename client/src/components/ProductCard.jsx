@@ -33,7 +33,7 @@ export default function ProductCard({ product, source, index }) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className={`relative group bg-[#0f0f1a]/40 backdrop-blur-md rounded-2xl p-5 flex flex-col gap-5 border border-white/5 hover:border-white/20 transition-all duration-500 cursor-default ${glowClass}`}
+      className={`relative group bg-[#0f0f1a]/40 backdrop-blur-xl rounded-2xl p-5 flex flex-col gap-5 border border-white/5 hover:border-white/20 transition-all duration-500 cursor-default ${glowClass}`}
     >
       {/* Background Decorative Element */}
       <div 
@@ -71,7 +71,7 @@ export default function ProductCard({ product, source, index }) {
               </span>
               {hasDiscount && (
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[11px] text-[#4a4a65] line-through font-mono">
+                  <span className="text-[11px] text-white/40 line-through font-mono">
                     {product.originalPrice}
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono font-bold border border-emerald-500/20">
@@ -89,7 +89,7 @@ export default function ProductCard({ product, source, index }) {
         {product.rating && <StarRating rating={product.rating} />}
         
         {product.reviewCount && (
-          <span className="text-[10px] font-mono text-[#4a4a65] uppercase tracking-wider">
+          <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider">
             {product.reviewCount} verified reviews
           </span>
         )}
@@ -110,14 +110,14 @@ export default function ProductCard({ product, source, index }) {
 
       {/* Technical Specs HUD style */}
       {product.specs && product.specs.length > 0 && (
-        <div className="bg-white/[0.03] rounded-xl p-3 border border-white/5">
+        <div className="bg-white/[0.2] rounded-xl p-3 border border-white/5">
           <div className="flex items-center gap-2 mb-2">
             <Zap size={10} style={{ color: accentColor }} />
-            <p className="text-[9px] uppercase tracking-[0.2em] font-bold text-white/30">Technical Parameters</p>
+            <p className="text-[9px] uppercase tracking-[0.2em] font-bold text-white/90">Technical Parameters</p>
           </div>
           <ul className="grid grid-cols-1 gap-1.5">
             {product.specs.slice(0, 3).map((spec, i) => (
-              <li key={i} className="flex items-center gap-2 text-[11px] text-[#9090b0] truncate">
+              <li key={i} className="flex items-center gap-2 text-[11px] text-white/60 truncate">
                 <div className="w-1 h-1 rounded-full opacity-30" style={{ background: accentColor }} />
                 {spec}
               </li>
@@ -131,7 +131,7 @@ export default function ProductCard({ product, source, index }) {
         {product.deliveryInfo && (
           <div className="flex items-center gap-2.5 px-1">
             <Truck size={12} className="opacity-50" style={{ color: accentColor }} />
-            <span className="text-[11px] text-[#6b6b8a] font-mono italic truncate">
+            <span className="text-[11px] text-[#fff] font-mono italic truncate">
               {product.deliveryInfo}
             </span>
           </div>
@@ -144,7 +144,7 @@ export default function ProductCard({ product, source, index }) {
             rel="noopener noreferrer"
             className="group/btn relative w-full flex items-center justify-center gap-2.5 py-3 rounded-xl text-[11px] font-black uppercase tracking-[0.15em] transition-all duration-300 overflow-hidden"
             style={{
-              background: `${accentColor}10`,
+              background: `${accentColor}30`,
               color: accentColor,
               border: `1px solid ${accentColor}25`,
             }}

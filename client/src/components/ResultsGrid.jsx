@@ -42,9 +42,9 @@ export default function ResultsGrid({ results, loading, query }) {
       {query && !loading && (
         <div className="flex items-center justify-center gap-4 mb-10 overflow-hidden">
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-          <p className="text-[10px] font-mono uppercase tracking-widest text-[#4a4a65] whitespace-nowrap">
-            Comparison Matrix <span className="text-white/20 mx-2">/</span> 
-            <span className="text-white/60">"{query}"</span>
+          <p className="text-[10px] font-mono uppercase tracking-widest text-white whitespace-nowrap">
+            Comparison Matrix <span className="text-black/20 mx-2">/</span> 
+            <span className="text-white/80">"{query}"</span>
           </p>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
         </div>
