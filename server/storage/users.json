@@ -1,0 +1,16 @@
+[
+  {
+    "id": "8f0ffd7f-3a9c-4f16-8ca1-188f4295a8c7",
+    "name": "Test",
+    "email": "test@example.com",
+    "passwordHash": "$2b$10$qNR1PJ4WZ0XfzNl/OquhkOTOiG0nmuZ7GQB/i/NJociIIa01m4GkC",
+    "createdAt": "2026-04-06T14:18:53.633Z"
+  },
+  {
+    "id": "7016a5dd-1c8a-4ebc-a887-cd56dbc58532",
+    "name": "abhishek kr sharma",
+    "email": "a@gmail.com",
+    "passwordHash": "$2b$10$g7PXsklRxr0cnlmPsEngr.9ZL631lWUDnc4YkUf7OhYSXyaR8iUo6",
+    "createdAt": "2026-04-06T14:22:43.336Z"
+  }
+]

@@ -24,7 +24,7 @@ export default function SearchBar({ onSearch, loading }) {
           ${
             isFocused
               ? " md:scale-[1.01]"
-              : "bg-[#0f0f1a]/40 border-white/10 shadow-xl"
+              : "bg-black/10 border-black/10 shadow-xl"
           }`}
       >
         {/* Search Icon - Hidden on very small screens to save space */}
@@ -47,7 +47,7 @@ export default function SearchBar({ onSearch, loading }) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={isFocused ? "" : "Search products..."}
           disabled={loading}
-          className="flex-1 bg-transparent py-4 md:py-5 pl-4 md:pl-4 pr-2 text-[#e8e8f0] placeholder:text-gray-500 font-body text-sm md:text-base outline-none disabled:opacity-50"
+          className="flex-1 bg-transparent py-4 md:py-5 pl-4 md:pl-4 pr-2 text-[#000] placeholder:text-gray-500 font-body text-sm md:text-base outline-none disabled:opacity-50"
         />
 
         {/* Clear Button */}
@@ -82,7 +82,7 @@ export default function SearchBar({ onSearch, loading }) {
               <Loader2 size={16} className="animate-spin md:hidden" />
             ) : null}
             <span className={loading ? "hidden md:inline" : "inline"}>
-              {loading ? "Searching..." : "Compare"}
+              {loading ? "Searching..." : "Search"}
             </span>
             {!loading && <ArrowRight size={14} className="md:hidden" />}
           </span>

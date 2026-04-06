@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { AnimatePresence } from "framer-motion";
 import { ReactLenis } from "lenis/react";
+import { useNavigate } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
@@ -20,6 +21,8 @@ import Testimonials from "./pages/Testimonials";
 import Footer from "./components/Footer";
 import Skiper30 from "./components/Skipper30";
 import FAQ from "./components/FAQ";
+// import AgentPanel from "./AIchat/AgentPanel"; // ← AI Agent
+import { useAuth } from "./auth/AuthContext";
 
 const TOAST_STYLE = {
   background: "#0f0f1a",
@@ -30,6 +33,8 @@ const TOAST_STYLE = {
 };
 
 export default function App() {
+  const { isAuthed } = useAuth();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
   const [activeQuery, setActiveQuery] = useState("");
@@ -39,6 +44,11 @@ export default function App() {
 
   const handleSearch = async (query) => {
     if (!query) return;
+    if (!isAuthed) {
+      toast.error("Please login to search products.", { style: TOAST_STYLE });
+      navigate("/login", { state: { from: "/" } });
+      return;
+    }
     setLoading(true);
     setActiveQuery(query);
     setResults(null);
@@ -56,10 +66,16 @@ export default function App() {
         style: TOAST_STYLE,
       });
     } catch (err) {
-      toast.error("Failed to fetch products.", {
+      const msg =
+        err.response?.status === 401
+          ? "Session expired. Please login again."
+          : "Failed to fetch products.";
+      toast.error(msg, {
         id: toastId,
         style: { ...TOAST_STYLE, border: "1px solid #3a1a1a" },
       });
+      if (err.response?.status === 401)
+        navigate("/login", { state: { from: "/" } });
     } finally {
       setLoading(false);
     }
@@ -123,8 +139,9 @@ export default function App() {
 
           <section className="flex-grow">
             <About />
-            <Services />
             <Skiper30 />
+            <Services />
+
             <Testimonials />
             <FAQ />
           </section>

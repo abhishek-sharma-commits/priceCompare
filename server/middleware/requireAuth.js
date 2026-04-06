@@ -1,0 +1,17 @@
+const jwt = require("jsonwebtoken");
+
+function requireAuth(req, res, next) {
+  const token = req.cookies?.pr_auth;
+  if (!token) return res.status(401).json({ error: "Unauthorized" });
+
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = { id: payload.sub, email: payload.email, name: payload.name };
+    return next();
+  } catch {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+}
+
+module.exports = requireAuth;
+

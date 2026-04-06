@@ -98,7 +98,7 @@ const Skiper30 = () => {
       {/* Parallax Gallery */}
       <div
         ref={gallery}
-        className="relative flex h-[150vh] gap-[2vw] overflow-hidden p-[2vw] opacity-80 hover:opacity-100 transition-opacity duration-1000"
+        className="relative flex h-[150vh] gap-[2vw] bg-[#FFF] overflow-hidden p-[2vw]  hover:opacity-100 transition-opacity duration-1000"
       >
         <Column images={[images[0], images[1], images[2]]} y={y1} className="-top-[10%]" />
         <Column images={[images[3], images[4], images[5]]} y={y2} className="-top-[30%]" />

@@ -1,87 +1,85 @@
-import { motion } from "framer-motion";
-import { Zap, Shield, BarChart3, Globe, ArrowUpRight } from "lucide-react";
+import React from 'react';
 
-const MODULES = [
-  {
-    icon: <Zap size={20} />,
-    title: "Real-Time Intercept",
-    desc: "Direct API hooks into global marketplaces for sub-second price accuracy."
-  },
-  {
-    icon: <Shield size={20} />,
-    title: "Verified Sources",
-    desc: "Only pulls data from official listings to avoid third-party scalper noise."
-  },
-  {
-    icon: <BarChart3 size={20} />,
-    title: "Price Delta Analysis",
-    desc: "Instant calculation of the price gap between platforms to find the winner."
-  },
-  {
-    icon: <Globe size={20} />,
-    title: "Universal Search",
-    desc: "Proprietary matching algorithm that aligns product variants across sites."
-  }
-];
-
-export default function Services() {
+const Services = () => {
   return (
-    <section id="Services" className="relative py-32 px-6 bg-black overflow-hidden selection:bg-indigo-500/30">
-      {/* Background Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-          <div className="max-w-xl">
-            <p className="text-[10px] font-mono uppercase tracking-[0.5em] text-indigo-400 font-bold mb-4">
-              04 // SYSTEM CAPABILITIES
-            </p>
-            <h2 className="text-5xl md:text-7xl font-medium text-white tracking-tighter leading-[0.85]">
-              Core <br />
-              <span className="italic text-gray-500">Modules</span>
-            </h2>
-          </div>
-          <p className="text-gray-500 text-sm font-mono max-w-[240px] leading-relaxed hidden md:block">
-            Engineered for high-frequency data ingestion and variant normalization.
-          </p>
-        </div>
-
-        {/* Modules Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-white/10">
-          {MODULES.map((m, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-8 border-b border-white/10 md:border-r last:border-r-0 transition-all duration-500 hover:bg-white/[0.02]"
-            >
-              {/* Card Header */}
-              <div className="flex justify-between items-start mb-16">
-                <div className="text-white bg-white/5 p-3 rounded-lg group-hover:bg-indigo-500/20 group-hover:text-indigo-400 transition-all duration-500">
-                  {m.icon}
-                </div>
-                <ArrowUpRight size={16} className="text-gray-700 group-hover:text-white transition-colors" />
-              </div>
-
-              {/* Card Content */}
-              <div className="space-y-4">
-                <h4 className="text-white font-medium text-xl tracking-tight">
-                  {m.title}
-                </h4>
-                <p className="text-gray-500 text-xs leading-relaxed font-mono">
-                  {m.desc}
-                </p>
-              </div>
-
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/[0.03] transition-colors pointer-events-none" />
-            </motion.div>
-          ))}
-        </div>
+    <div className="relative w-full min-h-screen flex items-center justify-center p-4 md:p-10 font-sans overflow-hidden">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://i.pinimg.com/736x/b3/65/db/b365db3d209ff954d15721deef485e68.jpg" 
+          alt="Architectural background" 
+          className="w-full h-full object-cover  brightness-75"
+        />
+        {/* Teal overlay to match the image vibe */}
+        <div className="absolute inset-0 bg-teal-500/20 mix-blend-multiply"></div>
       </div>
-    </section>
+
+      {/* Main Poster Container */}
+      <div className="relative z-10 w-full max-w-6xl aspect-[4/3] md:aspect-[16/10] bg-[#f8f7f2] shadow-2xl p-6 md:p-12 flex flex-col justify-between items-stretch">
+        
+        {/* Top Navigation Row */}
+        <div className="flex justify-between items-start text-[10px] md:text-xs uppercase tracking-tighter font-bold">
+          <div className="flex flex-col">
+            <span>Hipotesi®</span>
+          </div>
+          <div className="flex gap-4">
+            <span className="hover:line-through cursor-pointer">[index, about, careers]</span>
+          </div>
+          <div className="text-right">
+            <span>Copenhagen Den. 19:04pm**</span>
+          </div>
+        </div>
+
+        {/* Hero Title - The "Statement" Piece */}
+        <div className="flex-1 flex items-center justify-center">
+          <h1 className="text-[18vw] md:text-[15rem] font-black leading-[0.8] tracking-tighter text-black uppercase text-center select-none">
+            Let's Talk
+          </h1>
+        </div>
+
+        {/* Small Image Accents (Middle Row) */}
+        <div className="absolute top-1/2 w-full left-0 px-6 md:px-12 flex justify-between pointer-events-none">
+           <div className="w-12 h-8 bg-gray-300 overflow-hidden grayscale">
+             <img src="https://i.pinimg.com/originals/a0/44/f0/a044f0d638deba9e4e072270caf1d120.gif" alt="accent" className="w-full h-full object-cover" />
+           </div>
+           <div className="w-12 h-8 bg-teal-800 overflow-hidden">
+             <img src="https://i.pinimg.com/originals/5a/c5/20/5ac520423570173baad7b2b2e7b242b2.gif" alt="accent" className="w-full h-full object-cover" />
+           </div>
+        </div>
+
+        {/* Bottom Footer Row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 items-end gap-4 text-[9px] md:text-[11px] leading-tight uppercase tracking-tighter">
+          <div className="max-w-[180px]">
+            <p className="font-bold mb-1">Hipotesi®</p>
+            <p className="text-gray-500">
+              We are an award-winning design studio with a focus on Web3 and digital interactive experiences.
+            </p>
+          </div>
+          
+          <div className="flex flex-col items-center md:items-start">
+            <a href="#" className="hover:underline">Instagram</a>
+            <a href="#" className="hover:underline">Dribbble</a>
+          </div>
+
+          <div className="flex flex-col items-center md:items-start">
+            <span className="font-bold">Contacts</span>
+            <span>Copenhagen, DK</span>
+          </div>
+
+          <div className="text-right">
+            <p>All Rights Reserved</p>
+            <p>©2023</p>
+          </div>
+        </div>
+        
+        {/* Aesthetic Corner Markers */}
+        <div className="absolute top-4 left-4 w-2 h-2 border-l border-t border-gray-400"></div>
+        <div className="absolute top-4 right-4 w-2 h-2 border-r border-t border-gray-400"></div>
+        <div className="absolute bottom-4 left-4 w-2 h-2 border-l border-b border-gray-400"></div>
+        <div className="absolute bottom-4 right-4 w-2 h-2 border-r border-b border-gray-400"></div>
+      </div>
+    </div>
   );
-}
+};
+
+export default Services;

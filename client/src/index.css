@@ -46,15 +46,15 @@ body::before {
 .hero-gradient {
   background: radial-gradient(
       ellipse 80% 40% at 20% 10%,
-      rgb(248, 248, 247) 0%,
+      rgb(200, 198, 187) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 70% 50% at 80% 20%,
-      rgb(255, 255, 255) 0%,
+      rgb(200, 198, 187) 0%,
       transparent 60%
     ),
-    #ffffff;
+    #fffff0;
 }
 
 /* Glass card */
